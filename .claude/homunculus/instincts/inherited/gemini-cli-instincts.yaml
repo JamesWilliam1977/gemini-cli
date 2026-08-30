@@ -1,0 +1,576 @@
+# Instincts generated from https://github.com/JamesWilliam1977/gemini-cli
+# Generated: 2026-05-01T01:35:52.309Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: gemini-cli-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, docs, test
+
+## Evidence
+
+- 12 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat(ui): added microphone and updated placeholder for voice mode (#26270), fix(core): ensure tool output cleanup on session deletion for legacy files (#26263)
+
+---
+id: gemini-cli-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Commit Length
+
+## Action
+
+Write moderate-length commit messages (~67 characters)
+
+## Evidence
+
+- Average commit message length: 67 chars
+- Based on 12 commits
+
+---
+id: gemini-cli-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: gemini-cli-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: gemini-cli-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: gemini-cli-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: gemini-cli-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.test.ts
+
+---
+id: gemini-cli-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: gemini-cli-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: gemini-cli-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: no
+
+---
+id: gemini-cli-workflow-feature-or-fix-with-tests
+trigger: "when doing feature or fix with tests"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Workflow Feature Or Fix With Tests
+
+## Action
+
+Follow the feature-or-fix-with-tests workflow:
+1. Edit or create the implementation file (e.g., .ts or .tsx).
+2. Edit or create the corresponding test file (e.g., .test.ts or .test.tsx).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: packages/cli/src/ui/components/InputPrompt.tsx, packages/cli/src/ui/components/InputPrompt.test.tsx, packages/cli/src/utils/sessionCleanup.ts
+
+---
+id: gemini-cli-workflow-add-or-update-cli-command
+trigger: "when doing add or update cli command"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Workflow Add Or Update Cli Command
+
+## Action
+
+Follow the add-or-update-cli-command workflow:
+1. Edit or create the command implementation file (e.g., commandsCommand.ts).
+2. Edit or create the corresponding test file (e.g., commandsCommand.test.ts).
+3. Update documentation files describing the command (e.g., docs/cli/cli-reference.md, docs/reference/commands.md).
+4. Update snapshot files if present.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/cli/src/ui/commands/commandsCommand.ts, packages/cli/src/ui/commands/commandsCommand.test.ts, packages/cli/src/ui/commands/__snapshots__/commandsCommand.test.ts.snap
+
+---
+id: gemini-cli-workflow-documentation-update
+trigger: "when doing documentation update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Workflow Documentation Update
+
+## Action
+
+Follow the documentation-update workflow:
+1. Edit or add documentation markdown files (e.g., docs/cli/*.md, docs/tools/*.md).
+2. Optionally update sidebar or changelog files (e.g., docs/sidebar.json, docs/changelogs/latest.md).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: docs/cli/creating-skills.md, docs/cli/skills-best-practices.md, docs/cli/skills.md
+
+---
+id: gemini-cli-instinct-file-naming
+trigger: "When creating a new file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct File Naming
+
+## Action
+
+Name the file using camelCase (e.g., inputPrompt.tsx)
+
+## Evidence
+
+- Pattern in files: packages/cli/src/ui/components/InputPrompt.tsx
+- Naming conventions section
+
+---
+id: gemini-cli-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Function Naming
+
+## Action
+
+Name the function using camelCase (e.g., handleAutoUpdate)
+
+## Evidence
+
+- Pattern in files: packages/cli/src/utils/handleAutoUpdate.ts
+- Naming conventions section
+
+---
+id: gemini-cli-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Class Naming
+
+## Action
+
+Name the class using PascalCase (e.g., ChatRecordingService)
+
+## Evidence
+
+- Pattern in files: packages/core/src/services/chatRecordingService.ts
+- Naming conventions section
+
+---
+id: gemini-cli-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Constant Naming
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Naming conventions section
+
+---
+id: gemini-cli-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- importStyle: relative
+- Pattern in source files
+
+---
+id: gemini-cli-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- exportStyle: named
+- Pattern in source files
+
+---
+id: gemini-cli-instinct-test-file-pattern
+trigger: "When creating a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Test File Pattern
+
+## Action
+
+Name the test file with the pattern *.test.ts or *.test.tsx
+
+## Evidence
+
+- Pattern in files: packages/cli/src/ui/components/InputPrompt.test.tsx
+- testing.filePattern: *.test.ts
+
+---
+id: gemini-cli-instinct-test-framework
+trigger: "When writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Test Framework
+
+## Action
+
+Use the vitest testing framework
+
+## Evidence
+
+- testing.framework: vitest
+- Pattern in test files
+
+---
+id: gemini-cli-instinct-test-mocking
+trigger: "When mocking modules in tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- testing.mockingStyle: vi.mock
+- Pattern in test files
+
+---
+id: gemini-cli-instinct-test-types
+trigger: "When writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Test Types
+
+## Action
+
+Include both unit and integration tests as appropriate
+
+## Evidence
+
+- testing.testTypes: unit, integration
+- Pattern in test files
+
+---
+id: gemini-cli-instinct-git-commit-format
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Git Commit Format
+
+## Action
+
+Use conventional commit prefixes: fix, feat, docs, test; follow format: <type>(<scope>): <description>
+
+## Evidence
+
+- Pattern in commits: feat(ui): added microphone...
+- commits.prefixes
+
+---
+id: gemini-cli-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise, around 67 characters on average
+
+## Evidence
+
+- commits.averageLength: 67
+
+---
+id: gemini-cli-instinct-feature-fix-with-tests
+trigger: "When adding a new feature or fixing a bug"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Feature Fix With Tests
+
+## Action
+
+Edit or create the implementation file and the corresponding test file together
+
+## Evidence
+
+- Workflow: feature-or-fix-with-tests
+- Pattern in files: InputPrompt.tsx & InputPrompt.test.tsx
+
+---
+id: gemini-cli-instinct-add-update-cli-command
+trigger: "When adding or updating a CLI command"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Add Update Cli Command
+
+## Action
+
+Edit or create the command implementation, corresponding test, update documentation, and update snapshot files if present
+
+## Evidence
+
+- Workflow: add-or-update-cli-command
+- Pattern in files: commandsCommand.ts, commandsCommand.test.ts, docs/cli/cli-reference.md
+
+---
+id: gemini-cli-instinct-documentation-update
+trigger: "When improving or adding documentation"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/gemini-cli
+---
+
+# Gemini Cli Instinct Documentation Update
+
+## Action
+
+Edit or add documentation markdown files, and optionally update sidebar or changelog files
+
+## Evidence
+
+- Workflow: documentation-update
+- Pattern in files: docs/cli/creating-skills.md, docs/sidebar.json
+
